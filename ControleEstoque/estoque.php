@@ -11,10 +11,52 @@ class Main {
     public function __construct() {
         // Teste
         $objUsuario = new Usuario;
+        
         $objFabricante = new Usuario;
         $objEstoque = new Estoque;
         $objItem = new Item;
         $objMovimentacao = new Movimentacao;
+
+        switch ($_SERVER["argv"][1]) {
+
+            case 'gravaUsuario':
+                $this->gravaUsuario($objUsuario);
+                break;
+            case 'editaUsuario':
+                $this->editaUsuario($objUsuario);
+                break;
+            default:
+                echo "Não existe a funcionalidade {$_SERVER["argv"][1]}";
+        }
+    }
+
+    public function gravaUsuario($objUsuario) {
+        $dados = $this->prepararDados();
+
+        $objUsuario->setDados($dados);
+        if ($objUsuario->gravarDados()) {
+            echo "Usuário gravado com sucesso!";
+        }
+    }
+
+    public function editaUsuario($objUsuario) {
+        $dados = $this->prepararDados();
+
+        $objUsuario->setDados($dados);
+        if ($objUsuario->gravarDados()) {
+            echo "Usuário editado com sucesso!";
+        }
+    }
+
+    public function prepararDados() {
+        $args = explode( "," , $_SERVER["argv"][2]);
+
+        foreach ($args as $valor) {
+            $arg = explode("=" , $valor);
+            $dados[$arg[0]] = $arg[1];
+        }
+
+        return $dados;
     }
 
     public function __destruct() {
