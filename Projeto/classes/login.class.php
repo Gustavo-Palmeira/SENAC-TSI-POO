@@ -1,8 +1,9 @@
 <?php 
 
+require_once(__DIR__ . '/../interfaces/login.interface.php');
 require_once( __DIR__ .  '/abstratas/database.class.php');
 
-class Login extends Database {
+class Login extends Database implements iLogin {
 
     protected $login;
     protected $password;

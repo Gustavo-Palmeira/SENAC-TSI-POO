@@ -1,6 +1,6 @@
 <?php
 
 Interface iLogin {
-    public function userLogin():void;
-    public function setDados( array $dados ):bool;
+    public function setLogin():bool;
+    public function userLogin();
 }

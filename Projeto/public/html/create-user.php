@@ -4,8 +4,19 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="row">
       <div class="col-12 mx-auto text-center bg-white" id="box-border">
-        <form id="box-form" method="post" action="../../private/php/register.php">
+        <form id="box-form" method="post" action="../../sistemaLogin.php">
           <h1 class=" text-uppercase h2"> Criar Conta </h1>
+          <?php
+
+            $msg = $_GET['msg'] ?? NULL;
+            if (isset($msg)) {
+              $msg = unserialize(urldecode($msg));
+              foreach ($msg as $value) {
+                echo $value . "<br>";
+              }
+            } 
+
+          ?>
           <label class="mt-3 mb-0" for=""> Usuário </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="text" name="userForm" id="userForm" required>
