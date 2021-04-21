@@ -1,6 +1,6 @@
 <?php
-session_start();
+/* session_start();
 
 if( !isset($_SESSION['login']) && !isset($_SESSION['user']) ){
     header('Location: index.php');
-}
+} */

@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . "/SENAC-TSI-POO/Projeto/private/php/database/config.php";
+/* require $_SERVER['DOCUMENT_ROOT'] . "/SENAC-TSI-POO/Projeto/private/php/database/config.php";
 
 try {
 
@@ -8,4 +8,4 @@ try {
 } catch (PDOException $error) {
 
     echo 'Connection failed: ' . $error->getMessage();
-}
+} */

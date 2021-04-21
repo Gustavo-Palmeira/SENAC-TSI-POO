@@ -1,6 +1,6 @@
 <?php
 
-//require './sessionStart.php';
+/* //require './sessionStart.php';
 
 require $_SERVER['DOCUMENT_ROOT'] . "/SENAC-TSI-POO/Projeto/private/php/database/db.php";
 
@@ -43,3 +43,4 @@ if (isset($_SESSION['login']) && $_SESSION['login'] != '') {
   $msg = "Erro";
   header('Location: ../../index.php');
 }
+ */

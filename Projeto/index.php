@@ -4,7 +4,7 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="row">
       <div class="col-12 mx-auto text-center bg-white mt-5" id="box-border">
-        <form id="box-form-login" method="post" action="./private/php/login.php">
+        <form id="box-form-login" method="post" action="./sistemaLogin.php">
           <img class="logo" src="./public/img/logo-mega-triunfo.svg">
           <?php
 
