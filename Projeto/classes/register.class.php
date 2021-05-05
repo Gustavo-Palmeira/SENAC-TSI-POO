@@ -21,26 +21,8 @@ class Register extends Database implements iRegister {
         $this->passwordConf = $_POST['passwordConfForm'] ?? null;
         return true;
     }
-
-    public function checkRegisterConsistency(): array {
-        $erros = [];
-
-        if (strlen($this->name) < 2) {
-            $erros[] = "O nome deve contém pelo menos 2 caracteres";
-        }
-
-        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $erros[] = 'E-mail inválido';
-        }
-
-        if (strlen($this->passwordForm) < 8) {
-            $erros[] = "A senha deve conter 8 caracteres ou mais";
-        } else if ($this->passwordForm != $this->passwordConf) {
-            $erros[] = "As senhas não são iguais";
-        }
-        
-        return $erros;
-    }
+    
+    // Consistência de dados retirada, pois fera o 1° princípio do SOLID
 
     public function registerUser(): bool {
         $this->passwordForm = password_hash($this->passwordForm, PASSWORD_DEFAULT);
