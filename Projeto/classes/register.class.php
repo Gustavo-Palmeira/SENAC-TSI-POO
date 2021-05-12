@@ -1,9 +1,9 @@
 <?php 
 
 require_once(__DIR__ . '/../interfaces/register.interface.php');
-require_once( __DIR__ .  '/abstratas/database.class.php');
+require_once(__DIR__ .  './checkRegisterConsistency.class.php');
 
-class Register extends Database implements iRegister {
+class Register extends CheckRegisterConsistency implements iRegister {
 
     protected $name;
     protected $email;
@@ -15,7 +15,7 @@ class Register extends Database implements iRegister {
     }
 
     public function setRegister(): bool {
-        $this->name = $_POST['userForm'] ?? null;
+        $this->name = $_POST['emailForm'] ?? null;
         $this->email = strToLower($_POST['emailForm']) ?? null;
         $this->passwordForm = trim($_POST['passwordForm']) ?? null;
         $this->passwordConf = $_POST['passwordConfForm'] ?? null;

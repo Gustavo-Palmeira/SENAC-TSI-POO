@@ -4,8 +4,19 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="row">
       <div class="col-12 mx-auto text-center bg-white" id="box-border">
-        <form method="post" id="box-form" action="../../private/php/changePasswordBd.php">
+        <form method="post" id="box-form" action="../../sistemaLogin.php">
           <h1 class="text-uppercase h2">Trocar Senha</h1>
+          <?php
+
+            $msg = $_GET['msg'] ?? NULL;
+            if (isset($msg)) {
+              $msg = unserialize(urldecode($msg));
+              foreach ($msg as $value) {
+                echo $value . "<br>";
+              }
+            } 
+
+          ?>
           <label class="mt-3 mb-0" for=""> E-mail </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="text" name="emailForm" id="emailForm" required>
