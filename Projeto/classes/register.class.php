@@ -1,9 +1,10 @@
 <?php 
 
 require_once(__DIR__ . '/../interfaces/register.interface.php');
+require_once(__DIR__ . '/../interfaces/registerUser.interface.php');
 require_once(__DIR__ .  './checkRegisterConsistency.class.php');
 
-class Register extends CheckRegisterConsistency implements iRegister {
+class Register extends CheckRegisterConsistency implements iRegister, iRegisterUser {
 
     protected $name;
     protected $email;

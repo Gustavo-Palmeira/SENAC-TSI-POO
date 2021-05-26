@@ -14,7 +14,7 @@ class Main {
         $this->objLogin = new Login;
         $this->objRegister = new Register;
         $this->objChangePassword = new ChangePassword;
-
+  
         $this->checkOperation();
     }
 
@@ -26,7 +26,7 @@ class Main {
         }
         if (isset($_POST['register'])) {
             if ($this->objRegister->setRegister()) {
-                $erros = $this->objRegister->checkConsistency();
+                $erros = $this->consistencyCheck($this->objRegister);
                 if (count($erros) > 0) {
                     header("Location: ./public/html/create-user.php?msg=" . urlencode(serialize($erros)));
                 } else {
@@ -37,7 +37,7 @@ class Main {
         }
         if (isset($_POST['changePasswordForm'])) {
             if ($this->objChangePassword->setPassword()) {
-                $erros = $this->objChangePassword->checkConsistency();
+                $erros = $this->consistencyCheck($this->objChangePassword);
                 if (count($erros) > 0) {
                     header("Location: ./public/html/change-password.php?msg=" . urlencode(serialize($erros)));
                 } else {
@@ -46,6 +46,14 @@ class Main {
                 }
             };
         }
+    }
+
+    public function consistencyCheck(object $object) {
+        $consistencyTest = new CheckConsistency;
+
+        $erros = $consistencyTest->check($object);
+        
+        return $erros;
     }
 }
 

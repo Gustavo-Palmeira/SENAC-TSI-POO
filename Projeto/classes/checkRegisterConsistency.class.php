@@ -2,8 +2,9 @@
 
 require_once(__DIR__ . '/../interfaces/check.interface.php');
 require_once( __DIR__ .  './abstratas/database.class.php');
+require_once( __DIR__ .  './CheckConsistency.class.php');
 
-class CheckRegisterConsistency extends Database implements iCheck {
+class CheckRegisterConsistency extends CheckConsistency implements iCheck {
 
     // Consistência de dados utilizando Strategy.
 
