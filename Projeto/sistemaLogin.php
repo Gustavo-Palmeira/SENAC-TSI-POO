@@ -1,8 +1,9 @@
 <?php
 
-require('classes/login.class.php');
-require('classes/register.class.php');
-require('classes/changePassword.class.php');
+require('classes/factory/factoryLogin.class.php');
+require('classes/factory/factoryRegister.class.php');
+require('classes/factory/factoryChangePassword.class.php');
+require('classes/factory/factoryCheckConsistency.class.php');
 
 class Main {
 
@@ -11,9 +12,9 @@ class Main {
     private $objChangePassword;
 
     public function __construct() {
-        $this->objLogin = new Login;
-        $this->objRegister = new Register;
-        $this->objChangePassword = new ChangePassword;
+        $this->objLogin = FactoryLogin::login();
+        $this->objRegister = FactoryRegister::register();
+        $this->objChangePassword = FactoryChangePassword::changePassword();
   
         $this->checkOperation();
     }
@@ -56,7 +57,8 @@ class Main {
     }
 
     public function consistencyCheck(object $object) {
-        $consistencyTest = new CheckConsistency;
+        $consistencyTest = FactoryCheckConsistency::check($object);
+
         $erros = $consistencyTest->check($object);
 
         return $erros;
